@@ -43,7 +43,7 @@ public class totem : MonoBehaviour
         if (motherTotem.isActiveAndEnabled) {
             //call playerhealth 
             if (health.currentHealth < 100) {
-                health.currentHealth += (1 * Time.deltaTime);
+                health.currentHealth += (1);
             }
         }
         //defend from behind
