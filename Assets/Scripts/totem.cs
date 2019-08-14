@@ -34,6 +34,7 @@ public class totem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float temp = 1 * Time.deltaTime; 
         //change attack speed
         if (fatherTotem.isActiveAndEnabled) {
             attack.startTimeBtwAttack = 2;
@@ -43,7 +44,7 @@ public class totem : MonoBehaviour
         if (motherTotem.isActiveAndEnabled) {
             //call playerhealth 
             if (health.currentHealth < 100) {
-                health.currentHealth += (1);
+                health.currentHealth += temp;
             }
         }
         //defend from behind

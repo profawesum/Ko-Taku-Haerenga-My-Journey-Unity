@@ -7,7 +7,7 @@ public class playerHealth : MonoBehaviour
 {
 
     public int maxHealth = 100;
-    public int currentHealth = 100;
+    public float currentHealth = 100;
     public int enemyWeaponDamage;
 
     public Image healthBar;
