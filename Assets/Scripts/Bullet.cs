@@ -23,6 +23,17 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        { 
+            Destory();
+        }
+        else
+        {
+            Destory();
+        }
+    }
 
     public void SetDirection(Vector2 dir)
     {

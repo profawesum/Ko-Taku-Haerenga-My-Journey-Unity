@@ -8,20 +8,41 @@ public class FireBullets : MonoBehaviour
     private int bulletsAmounts = 10;
 
     [SerializeField]
+    private bool AlternativeFiring = false;
+
+    [SerializeField]
+    private float RateOfFire = 1f;
+
+    [SerializeField]
+    private float AngleChange;
+
+    private bool Switch;
+
+    [SerializeField]
     private float startAngle = 270f, endAngle = 90f;
 
     private Vector2 bulletMoveDirection;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Fire", 0f, 2f);
+        InvokeRepeating("Fire", 0f, RateOfFire);
     }
 
     private void Fire()
     {
+        if (AlternativeFiring == true && Switch == false)
+        {
+            startAngle += AngleChange;
+            endAngle += AngleChange;
+        }
+        else if (AlternativeFiring == true && Switch == true)
+        {
+            startAngle -= AngleChange;
+            endAngle -= AngleChange;
+        }
         float angleStep = (endAngle - startAngle) / bulletsAmounts;
         float angle = startAngle;
-
+ 
         for(int i = 0; i < bulletsAmounts + 1; i++)
         {
             float _bulletDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
@@ -37,6 +58,7 @@ public class FireBullets : MonoBehaviour
             _bullet.GetComponent<Bullet>().SetDirection(bulletDir);
 
             angle += angleStep;
+            Switch = !Switch;
         }
     }
 
