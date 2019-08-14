@@ -4,39 +4,37 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Direction bulletDirection = Direction.RIGHT;
-    public float speed = 5.0f;
-    bool TimeLock = false;
+    [SerializeField]
+    private float moveSpeed = 5.0f;
 
-    private Transform _transform;
+    private Vector2 moveDirection;
 
+    private void OnEnable()
+    {
+        Invoke("Destory", 3f);
+    }
     // Start is called before the first frame update
     void Start()
-    {
-        _transform = transform;
+    { 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!TimeLock)
-        {
-            LifeTime();
-        }
-        MoveBullet();
-    }
-    void MoveBullet()
-    {
-        int moveDirection = bulletDirection == Direction.LEFT ? -1 : 1;
-
-        float translate = moveDirection * speed * Time.deltaTime;
-        _transform.Translate(translate, 0, 0);
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 
-    IEnumerator LifeTime()
+    public void SetDirection(Vector2 dir)
     {
-        TimeLock = true;
-        yield return new WaitForSeconds(1);
-        Destroy(gameObject);
+        moveDirection = dir;
+    }
+    private void Destory()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }
