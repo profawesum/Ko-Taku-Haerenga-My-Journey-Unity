@@ -6,8 +6,12 @@ using UnityEngine;
 public class totem : MonoBehaviour
 {
 
+    //access to health and attack scripts
     [SerializeField] playerHealth health;
     [SerializeField] PlayerAttack attack;
+
+    //get access to the character controller
+    public UnityStandardAssets._2D.PlatformerCharacter2D controller;
 
     //images on the ui that represent the totems
     public Image brotherTotem;
@@ -19,6 +23,7 @@ public class totem : MonoBehaviour
 
     private void Awake()
     {
+        //should not destroy on load
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -36,17 +41,18 @@ public class totem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float temp = 1 * Time.deltaTime; 
+        float regen = 1 * Time.deltaTime; 
+
         //change attack speed
         if (fatherTotem.isActiveAndEnabled) {
-            attack.startTimeBtwAttack = 2;
+            attack.startTimeBtwAttack = 0.2f;
         }
         
         //get healing Working
         if (motherTotem.isActiveAndEnabled) {
             //call playerhealth 
             if (health.currentHealth < 100) {
-                health.currentHealth += temp;
+                health.currentHealth += regen;
             }
         }
         //defend from behind
@@ -55,7 +61,8 @@ public class totem : MonoBehaviour
         }
         //faster movement
         if (sisterTotem.isActiveAndEnabled) {
-            //need to find a way to access the player controller
+            controller.m_MaxSpeed = 15f;
+            controller.m_JumpForce = 850;
         } 
     }
 
@@ -66,13 +73,13 @@ public class totem : MonoBehaviour
             motherTotem.enabled = true;
         }
         if (boss == 2) {
-
+            fatherTotem.enabled = true;
         }
         if (boss == 3) {
-
+            sisterTotem.enabled = true;
         }
         if (boss == 4) {
-
+            brotherTotem.enabled = true;
         }
     }
 }
