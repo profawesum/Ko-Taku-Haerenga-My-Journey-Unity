@@ -586,5 +586,10 @@ PrefabInstance:
       propertyPath: moveSpots.Array.data[1]
       value: 
       objectReference: {fileID: 1358630856}
+    - target: {fileID: 9008584300826050464, guid: 5c531730d5e56994086248fb8d41da83,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c531730d5e56994086248fb8d41da83, type: 3}
