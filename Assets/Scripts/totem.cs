@@ -29,6 +29,8 @@ public class totem : MonoBehaviour
         sisterTotem.enabled = false;
         motherTotem.enabled = false;
         fatherTotem.enabled = false;
+
+        brotherTotemObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,7 +42,7 @@ public class totem : MonoBehaviour
             attack.startTimeBtwAttack = 2;
         }
         
-        //get healing
+        //get healing Working
         if (motherTotem.isActiveAndEnabled) {
             //call playerhealth 
             if (health.currentHealth < 100) {
@@ -58,9 +60,10 @@ public class totem : MonoBehaviour
     }
 
     //when a boss is beaten get a new totem
+    [SerializeField]
     void destroyBoss(int boss) {
         if (boss == 1) {
-
+            motherTotem.enabled = true;
         }
         if (boss == 2) {
 
