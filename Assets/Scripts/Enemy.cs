@@ -21,6 +21,12 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Direction direction;
 
+    public enum AttackType
+    {
+        Nothing,
+        ShootAt
+    }
+
     enum MovementType
     {
         Stationary,
@@ -30,6 +36,9 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private MovementType movementType;
+
+    [SerializeField]
+    private AttackType attackType;
 
     void Start()
     {
@@ -61,6 +70,11 @@ public class Enemy : MonoBehaviour
             }
 
         }
+    }
+
+    public AttackType GetAttackType()
+    {
+        return attackType;
     }
 
     public void TakeDamage(int damage)

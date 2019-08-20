@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
 
     private Vector2 moveDirection;
 
+    public bool isNotInPool;
+
     private void OnEnable()
     {
         Invoke("Destory", 3f);
@@ -27,6 +29,7 @@ public class Bullet : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         { 
+            // Damage to player
             Destory();
         }
         else
@@ -41,6 +44,10 @@ public class Bullet : MonoBehaviour
     }
     private void Destory()
     {
+        if(isNotInPool == true)
+        {
+            Destroy(gameObject);
+        }
         gameObject.SetActive(false);
     }
 

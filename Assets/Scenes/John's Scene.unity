@@ -610,6 +610,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 301008663}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1599103307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9008584300826050463, guid: 5c531730d5e56994086248fb8d41da83,
+    type: 3}
+  m_PrefabInstance: {fileID: 8327714599079465601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1599103308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599103307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dec83ecd091c624abd350b7c585e7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeBtwShots: 2
+  projectile: {fileID: 9144771351905558174, guid: a1c1e78a9fd615e4c8d39476e91cbd70,
+    type: 3}
 --- !u!1001 &1770517635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1017,6 +1038,11 @@ PrefabInstance:
     - target: {fileID: 9008584300826050464, guid: 5c531730d5e56994086248fb8d41da83,
         type: 3}
       propertyPath: movementType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008584300826050464, guid: 5c531730d5e56994086248fb8d41da83,
+        type: 3}
+      propertyPath: attackType
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
