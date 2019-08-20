@@ -10,8 +10,15 @@ public class playerHealth : MonoBehaviour
     public float currentHealth = 100;
     public int enemyWeaponDamage;
 
+    public GameObject player;
+
     public Image healthBar;
     public Image healthBar2;
+
+    private void Awake()
+    {
+        currentHealth = 100;
+    }
 
     // Update is called once per frame
     void Update(){

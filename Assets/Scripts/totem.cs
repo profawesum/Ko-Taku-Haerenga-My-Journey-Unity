@@ -13,6 +13,8 @@ public class totem : MonoBehaviour
     //get access to the character controller
     public UnityStandardAssets._2D.PlatformerCharacter2D controller;
 
+    public int boss;
+
     //images on the ui that represent the totems
     public Image brotherTotem;
     public Image sisterTotem;
@@ -20,12 +22,6 @@ public class totem : MonoBehaviour
     public Image fatherTotem;
 
     public GameObject brotherTotemObj;
-
-    private void Awake()
-    {
-        //should not destroy on load
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     void Start()
     {
@@ -36,6 +32,8 @@ public class totem : MonoBehaviour
         fatherTotem.enabled = false;
 
         brotherTotemObj.SetActive(false);
+
+        destroyBoss(boss);
     }
 
     // Update is called once per frame
@@ -72,13 +70,13 @@ public class totem : MonoBehaviour
         if (boss == 1) {
             motherTotem.enabled = true;
         }
-        if (boss == 2) {
+        if (boss >= 2) {
             fatherTotem.enabled = true;
         }
-        if (boss == 3) {
+        if (boss >= 3) {
             sisterTotem.enabled = true;
         }
-        if (boss == 4) {
+        if (boss >= 4) {
             brotherTotem.enabled = true;
         }
     }
