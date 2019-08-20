@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: [Fire, enemy]
+  tags:
+  - Fire
+  - enemy
+  - death
   layers:
   - Default
   - TransparentFX

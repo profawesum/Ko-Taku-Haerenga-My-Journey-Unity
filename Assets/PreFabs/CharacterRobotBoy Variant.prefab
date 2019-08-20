@@ -67,7 +67,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1590952965}
   - component: {fileID: 1590952964}
-  - component: {fileID: 1590952963}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -115,23 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46, y: 1.59}
   m_EdgeRadius: 0
---- !u!114 &1590952963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590952962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be8030bffe86bc94da1514ebeca9f7d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  enemyWeaponDamage: 10
-  healthBar: {fileID: 0}
-  healthBar2: {fileID: 0}
 --- !u!61 &2132667904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,7 +162,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_Name
-      value: CharacterRobotBoy
+      value: CharacterRobotBoy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_LocalPosition.x
@@ -230,10 +212,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.77153
       objectReference: {fileID: 0}
-    - target: {fileID: 698855860, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_JumpForce
       value: 850
@@ -241,6 +219,10 @@ PrefabInstance:
     - target: {fileID: 11400002, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_MaxSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 698855860, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
