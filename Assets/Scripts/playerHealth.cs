@@ -25,7 +25,7 @@ public class playerHealth : MonoBehaviour
         healthBar2.fillAmount = (float)currentHealth / (float)maxHealth;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "enemy")
         {
