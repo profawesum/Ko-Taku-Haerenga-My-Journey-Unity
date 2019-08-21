@@ -11,8 +11,12 @@ public class FireBullets : MonoBehaviour
     private bool AlternativeFiring = false;
 
     [SerializeField]
+    private float maxDistance;
+
+    [SerializeField]
     private float RateOfFire = 1f;
 
+    private float fireTimer = 0;
     [SerializeField]
     private float AngleChange;
 
@@ -25,7 +29,6 @@ public class FireBullets : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Fire", 0f, RateOfFire);
     }
 
     private void Fire()
@@ -65,6 +68,11 @@ public class FireBullets : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        fireTimer += Time.deltaTime;
+        if (fireTimer >= RateOfFire && Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) <= maxDistance)
+        {
+            fireTimer = 0;
+            Fire();
+        }
     }
 }
