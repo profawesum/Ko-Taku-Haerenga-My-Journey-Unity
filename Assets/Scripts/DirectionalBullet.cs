@@ -47,6 +47,9 @@ public class DirectionalBullet : MonoBehaviour, IGameObjectPooled
             // Damage to player
             Destory();
         }
+        else if(collision.GetComponent<DirectionalBullet>() == true)
+        {
+        }
         else
         {
             Destory();

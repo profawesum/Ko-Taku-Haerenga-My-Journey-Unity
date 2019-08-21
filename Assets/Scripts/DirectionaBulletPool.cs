@@ -32,7 +32,7 @@ public class DirectionaBulletPool : MonoBehaviour
     private void AddObjects(int count)
     {
         var newObject = GameObject.Instantiate(prefab);
-        newObject.SetActive(false);
+        newObject.SetActive(true);
         objects.Enqueue(newObject);
 
         newObject.GetComponent<IGameObjectPooled>().Pool = this;
