@@ -20,7 +20,9 @@ namespace UnityStandardAssets._2D
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-        
+
+
+        public Animator anim;
 
         public Direction PlayerDirection {
             get {
@@ -50,6 +52,7 @@ namespace UnityStandardAssets._2D
             {
                 if (colliders[i].gameObject != gameObject)
                     m_Grounded = true;
+                
             }
             m_Anim.SetBool("Ground", m_Grounded);
 
@@ -63,7 +66,7 @@ namespace UnityStandardAssets._2D
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
-              
+                anim.SetBool("isJump", false);
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
@@ -91,6 +94,7 @@ namespace UnityStandardAssets._2D
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
+                anim.SetBool("isJump", true);
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
         }

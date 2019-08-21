@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: b5d0886b136e7ee4899cad5754f70642
   - enabled: 1
-    path: Assets/Scenes/Castlevania.unity
-    guid: 0b5e07083d8641c4b817b5ace12c128b
-  - enabled: 0
     path: Assets/Scenes/Harry'sScene.unity
     guid: bca6ef9f230458f41b9e62cc0baacaf7
+  - enabled: 1
+    path: Assets/Scenes/Castlevania.unity
+    guid: 0b5e07083d8641c4b817b5ace12c128b
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729

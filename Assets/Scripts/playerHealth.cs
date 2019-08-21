@@ -8,6 +8,10 @@ public class playerHealth : MonoBehaviour
 
     [SerializeField] totem pickupTotem;
 
+    public AudioSource Collect;
+    public AudioSource jump;
+    public AudioSource hit;
+
     public int maxHealth = 100;
     public float currentHealth = 100;
     public int enemyWeaponDamage;
@@ -29,6 +33,12 @@ public class playerHealth : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            jump.Play();
+            Debug.Log("Play");
+        }
+
         if (currentHealth <= 0) {
             Application.LoadLevel(Application.loadedLevel);
         }
@@ -50,23 +60,41 @@ public class playerHealth : MonoBehaviour
         if (collision.gameObject.tag == "enemy")
         {
             currentHealth -= enemyWeaponDamage;
+            hit.Play();
         }
         if (collision.gameObject.tag == "totemBlue")
         {
+            Collect.Play();
             pickupTotem.brotherTotem.enabled = true;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "totemRed")
         {
+            Collect.Play();
             pickupTotem.sisterTotem.enabled = true;
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "greenTotem") {
+            Collect.Play();
+            pickupTotem.motherTotem.enabled = true;
+            Destroy(collision.gameObject);
+            Debug.Log("totemM");
+        }
+        if (collision.gameObject.tag == "yellowTotem") {
+            Collect.Play();
+            pickupTotem.fatherTotem.enabled = true;
+            Destroy(collision.gameObject);
+            Debug.Log("totem");
+        }
         if (collision.gameObject.tag == "minorTotem") {
+            Collect.Play();
             destructor.SetActive(true);
             Destroy(collision.gameObject);
             timer = 20;
         }
     }
+
+
 
 
 }

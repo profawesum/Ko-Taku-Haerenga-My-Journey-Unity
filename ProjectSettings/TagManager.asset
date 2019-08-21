@@ -10,6 +10,8 @@ TagManager:
   - totemBlue
   - totemRed
   - minorTotem
+  - greenTotem
+  - yellowTotem
   layers:
   - Default
   - TransparentFX
