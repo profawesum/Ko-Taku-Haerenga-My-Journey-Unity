@@ -14,7 +14,7 @@ public class totem : MonoBehaviour
     //get access to the character controller
     public UnityStandardAssets._2D.PlatformerCharacter2D controller;
 
-    public int boss;
+    public int boss = 2;
 
     //images on the ui that represent the totems
     public Image brotherTotem;
