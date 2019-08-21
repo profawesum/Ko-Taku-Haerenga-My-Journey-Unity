@@ -31,6 +31,8 @@ public class playerHealth : MonoBehaviour
         destructor.SetActive(false);
     }
 
+
+
     // Update is called once per frame
     void Update(){
 
@@ -101,9 +103,6 @@ public class playerHealth : MonoBehaviour
             timer = 20;
         }
     }
-
-
-
 
 }
 
