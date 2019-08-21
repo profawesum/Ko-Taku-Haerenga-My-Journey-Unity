@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3739655213418421146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757756362142514351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9b22c4267d9ce4d83f766217d07245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  startWaitTime: 0
+  moveSpots: []
 --- !u!1001 &7359567645636462579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 7829077641378757468, guid: 1560e190d5c5a8443884f77305dba6fb,
         type: 3}
       propertyPath: m_Name
-      value: MovePoint
+      value: MovePoint Variant
       objectReference: {fileID: 0}
     - target: {fileID: 818294939442185581, guid: 1560e190d5c5a8443884f77305dba6fb,
         type: 3}
@@ -74,3 +89,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1560e190d5c5a8443884f77305dba6fb, type: 3}
+--- !u!1 &757756362142514351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7829077641378757468, guid: 1560e190d5c5a8443884f77305dba6fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7359567645636462579}
+  m_PrefabAsset: {fileID: 0}
