@@ -9,6 +9,7 @@ TagManager:
   - death
   - totemBlue
   - totemRed
+  - minorTotem
   layers:
   - Default
   - TransparentFX
