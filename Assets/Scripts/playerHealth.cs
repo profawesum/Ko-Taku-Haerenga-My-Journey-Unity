@@ -64,7 +64,7 @@ public class playerHealth : MonoBehaviour
         if (collision.gameObject.tag == "minorTotem") {
             destructor.SetActive(true);
             Destroy(collision.gameObject);
-            timer += 20;
+            timer = 20;
         }
     }
 
