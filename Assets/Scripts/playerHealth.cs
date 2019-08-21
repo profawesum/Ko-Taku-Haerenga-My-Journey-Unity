@@ -6,6 +6,8 @@ using UnityEngine;
 public class playerHealth : MonoBehaviour
 {
 
+    [SerializeField] totem pickupTotem;
+
     public int maxHealth = 100;
     public float currentHealth = 100;
     public int enemyWeaponDamage;
@@ -37,6 +39,16 @@ public class playerHealth : MonoBehaviour
         if (collision.gameObject.tag == "enemy")
         {
             currentHealth -= enemyWeaponDamage;
+        }
+        if (collision.gameObject.tag == "totemBlue")
+        {
+            pickupTotem.brotherTotem.enabled = true;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "totemRed")
+        {
+            pickupTotem.sisterTotem.enabled = true;
+            Destroy(collision.gameObject);
         }
     }
 

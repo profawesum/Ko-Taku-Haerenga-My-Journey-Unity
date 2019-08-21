@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+[SerializeField]
 public class totem : MonoBehaviour
 {
 
@@ -21,6 +22,13 @@ public class totem : MonoBehaviour
     public Image motherTotem;
     public Image fatherTotem;
 
+    public GameObject invincBox;
+
+    public int timer;
+    public int maxTime = 100;
+    public int invincTimer;
+    public int invincTimerMax;
+
     public GameObject brotherTotemObj;
 
     void Start()
@@ -32,6 +40,7 @@ public class totem : MonoBehaviour
         fatherTotem.enabled = false;
 
         brotherTotemObj.SetActive(false);
+        invincBox.SetActive(false);
 
         destroyBoss(boss);
     }
@@ -39,11 +48,11 @@ public class totem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float regen = 1 * Time.deltaTime; 
+        float regen = 1.0f * Time.deltaTime; 
 
-        //change attack speed
+        //Change base Speed
         if (fatherTotem.isActiveAndEnabled) {
-            attack.startTimeBtwAttack = 0.2f;
+            controller.m_MaxSpeed = 10f;
         }
         
         //get healing Working
@@ -53,15 +62,47 @@ public class totem : MonoBehaviour
                 health.currentHealth += regen;
             }
         }
-        //defend from behind
+        //Slow Time
         if (brotherTotem.isActiveAndEnabled) {
-            brotherTotemObj.SetActive(true);
+            if (Input.GetKey(KeyCode.E) && timer >= 500) {
+                timer = 0;
+                Time.timeScale = 0.3f;
+            }
         }
-        //faster movement
+        //Temp invicibility
         if (sisterTotem.isActiveAndEnabled) {
-            controller.m_MaxSpeed = 15f;
-            controller.m_JumpForce = 850;
-        } 
+            if (Input.GetKey(KeyCode.Q) && invincTimer >= 1500) {
+                invincBox.SetActive(true);
+                invincTimer = 0;
+            }
+
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        //deactivates the slowtime
+        if (Time.timeScale == 0.3f)
+        {
+            if (timer >= 200)
+            {
+                Time.timeScale = 1.0f;
+            }
+        }
+        brotherTotem.fillAmount = (float)timer / (float)maxTime;
+        timer += 1;
+        //deactivates the invincibility box
+        if (invincBox.activeInHierarchy)
+        {
+            invincTimer += 1;
+            if (invincTimer >= 200)
+            {
+                invincBox.SetActive(false);
+            }
+        }
+        sisterTotem.fillAmount = (float)invincTimer / (float)invincTimerMax;
+        invincTimer += 1;
     }
 
     //when a boss is beaten get a new totem
