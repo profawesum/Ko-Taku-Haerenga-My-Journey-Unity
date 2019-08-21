@@ -39,6 +39,14 @@ public class playerHealth : MonoBehaviour
             Debug.Log("Play");
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+
         if (currentHealth <= 0) {
             Application.LoadLevel(Application.loadedLevel);
         }
