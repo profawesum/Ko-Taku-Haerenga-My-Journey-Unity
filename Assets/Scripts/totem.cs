@@ -29,8 +29,6 @@ public class totem : MonoBehaviour
     public int invincTimer;
     public int invincTimerMax;
 
-    public GameObject brotherTotemObj;
-
     void Start()
     {
         //disabling the totems in the first level;
@@ -38,8 +36,6 @@ public class totem : MonoBehaviour
         sisterTotem.enabled = false;
         motherTotem.enabled = false;
         fatherTotem.enabled = false;
-
-        brotherTotemObj.SetActive(false);
         invincBox.SetActive(false);
 
         destroyBoss(boss);
@@ -113,12 +109,18 @@ public class totem : MonoBehaviour
         }
         if (boss >= 2) {
             fatherTotem.enabled = true;
+            motherTotem.enabled = true;
         }
         if (boss >= 3) {
             sisterTotem.enabled = true;
+            fatherTotem.enabled = true;
+            motherTotem.enabled = true;
         }
         if (boss >= 4) {
             brotherTotem.enabled = true;
+            sisterTotem.enabled = true;
+            fatherTotem.enabled = true;
+            motherTotem.enabled = true;
         }
     }
 }
