@@ -11,7 +11,7 @@ public class FireBullets : MonoBehaviour
     private bool AlternativeFiring = false;
 
     [SerializeField]
-    private float maxDistance;
+    public float maxDistance;
 
     [SerializeField]
     private float RateOfFire = 1f;
@@ -69,7 +69,7 @@ public class FireBullets : MonoBehaviour
     void Update()
     {
         fireTimer += Time.deltaTime;
-        if (fireTimer >= RateOfFire && Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) <= maxDistance)
+        if (fireTimer >= RateOfFire && Vector3.Distance(GameObject.FindGameObjectWithTag("findme").transform.position, transform.position) <= maxDistance)
         {
             fireTimer = 0;
             Fire();

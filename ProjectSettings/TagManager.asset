@@ -12,6 +12,7 @@ TagManager:
   - minorTotem
   - greenTotem
   - yellowTotem
+  - findme
   layers:
   - Default
   - TransparentFX
